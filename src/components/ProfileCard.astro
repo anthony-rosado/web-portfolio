@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../assets/images/profile-photo.png';
+import locationIcon from '../assets/icons/location.svg';
+
+const me = {
+    photo: photo,
+    name: 'Anthony Rosado',
+    occupation: 'Desarrollador back-end',
+    location: 'Lima, Perú',
+};
+
+const accounts = [
+    {
+        platform: 'GitHub',
+        url: 'https://github.com/anthony-rosado',
+        iconSrc: '/icons/github.svg'
+    },
+    {
+        platform: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/anthony-rosado-ancajima',
+        iconSrc: '/icons/linkedin.svg',
+    },
+];
+---
+
+<section class="py-4 px-4">
+    <div class="items-center md:space-x-4 text-wrap md:flex">
+        <div>
+            <Image class="size-36 rounded-full mx-auto" src={ me.photo } alt="Anthony Rosado" loading="eager" />
+        </div>
+        <div class="flex-grow text-center md:text-left">
+            <h1 class="text-3xl text-amber-400 font-bold">{ me.name }</h1>
+            <h2 class="text-xl font-semibold">{ me.occupation }</h2>
+            <div class="flex items-center justify-center md:justify-start">
+                <Image src={ locationIcon } alt="location icon" loading="eager" />
+                <span class="text-base">{ me.location }</span>
+            </div>
+        </div>
+        <div class="flex flex-row justify-center gap-3 mt-1 sm:mt-0">
+            { accounts.map((account) => (
+                <a href={ account.url } target="_blank">
+                    <img class="size-9" loading="eager" src={ account.iconSrc } alt={ account.platform } />
+                </a>
+            )) }
+        </div>
+    </div>
+</section>
