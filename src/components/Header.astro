@@ -1,0 +1,29 @@
+---
+const links = [
+    {
+        label: "Sobre mí",
+        href: "/#about-me",
+    },
+    {
+        label: "Experiencia",
+        href: "/#experience",
+    },
+    {
+        label: "Habilidades",
+        href: "/#skills",
+    },
+    {
+        label: "Proyectos",
+        href: "/#projects",
+    }
+];
+---
+
+<header class="fixed top-0 flex items-center justify-center w-full mx-auto mt-3">
+    <nav class="flex flex-row justify-center items-center max-w-fit px-2 mx-2
+    bg-gray-800 rounded-full text-sm sm:text-base sm:gap-3">
+        { links.map((link) => (
+            <a href={ link.href } class="px-2 py-2 font-semibold hover:text-amber-400">{ link.label }</a>
+        )) }
+    </nav>
+</header>
