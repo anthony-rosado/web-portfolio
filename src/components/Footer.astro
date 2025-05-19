@@ -1,0 +1,40 @@
+---
+interface Account {
+    platform: string;
+    url: string;
+    icon: string;
+}
+
+const accounts: Account[] = [
+    {
+        platform: 'GitHub',
+        url: 'https://github.com/anthony-rosado',
+        icon: '/icons/github.svg'
+    },
+    {
+        platform: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/anthony-rosado-ancajima',
+        icon: '/icons/linkedin.svg',
+    },
+];
+---
+
+<footer class="mb-5 px-4 mx-auto max-w-4xl md:px-10">
+    <hr class="my-4 border-t border-gray-700" />
+    <div class="flex justify-between items-center">
+        <p class="text-base text-gray-400">© { new Date().getFullYear() } Anthony Rosado</p>
+        <div class="flex flex-row justify-center gap-3">
+            { accounts.map(account => (
+                <a
+                    href={ account.url }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={ account.platform }
+                    class="hover:scale-110 transition-transform hover:brightness-125"
+                >
+                    <img src={ account.icon } alt={ account.platform } loading="eager" class="size-9" />
+                </a>
+            )) }
+        </div>
+    </div>
+</footer>
