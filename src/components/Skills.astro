@@ -1,0 +1,43 @@
+---
+import Section from "./Section.astro";
+import skillIcon from '../assets/icons/skill.svg';
+import SkillBadge from "./SkillBadge.astro";
+import SkillContainer from "./SkillContainer.astro";
+
+const technologies = [
+    { name: "HTML", icon: "/icons/skills/html5.svg" },
+    { name: "CSS", icon: "/icons/skills/css3.svg" },
+    { name: "Javascript", icon: "/icons/skills/javascript.svg" },
+    { name: "PHP", icon: "/icons/skills/php.svg" },
+    { name: "MySQL", icon: "/icons/skills/mysql.svg" },
+    { name: "MariaDB", icon: "/icons/skills/mariadb.svg" },
+    { name: "Laravel", icon: "/icons/skills/laravel.svg" },
+    { name: "Astro", icon: "/icons/skills/astro.svg" },
+    { name: "Tailwind CSS", icon: "/icons/skills/tailwind.svg" },
+    { name: "Git", icon: "/icons/skills/git.svg" },
+    { name: "Docker", icon: "/icons/skills/docker.svg" },
+];
+
+const tools = [
+    { name: "Slack", icon: "/icons/tools/slack.svg" },
+    { name: "Notion", icon: "/icons/tools/notion.svg" },
+    { name: "Postman", icon: "/icons/tools/postman.svg" },
+    { name: "Sentry", icon: "/icons/tools/sentry.svg" },
+    { name: "PhpStorm", icon: "/icons/tools/phpstorm.svg" },
+    { name: "Datagrip", icon: "/icons/tools/datagrip.svg" },
+    { name: "WebStorm", icon: "/icons/tools/webstorm.svg" },
+];
+---
+
+<Section id="skills" title="Habilidades" icon={ skillIcon }>
+    <SkillContainer name="Tecnologías">
+        { technologies.map((tech) => (
+            <SkillBadge name={ tech.name } icon={ tech.icon } />
+        )) }
+    </SkillContainer>
+    <SkillContainer name="Herramientas">
+        { tools.map((tool) => (
+            <SkillBadge name={ tool.name } icon={ tool.icon } />
+        )) }
+    </SkillContainer>
+</Section>
