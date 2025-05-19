@@ -1,0 +1,140 @@
+---
+import Section from "./Section.astro";
+import projectIcon from '../assets/icons/project.svg';
+
+interface Technology {
+    name: string;
+    icon: string;
+}
+
+interface Link {
+    name: string;
+    url: string;
+    icon: string;
+}
+
+interface Project {
+    name: string;
+    links: Link[];
+    description: string;
+    technologies: Technology[];
+}
+
+const projects: Project[] = [
+    {
+        name: "Portafolio web",
+        links: [
+            { name: "Web", url: "/", icon: "/icons/internet.svg" },
+        ],
+        description: "Portafolio web personal donde presento mi experiencia profesional, proyectos destacados y " +
+            "habilidades técnicas. Optimizado para rendimiento, responsivo y con diseño moderno.",
+        technologies: [
+            { name: "HTML", icon: "/icons/skills/html5.svg" },
+            { name: "CSS", icon: "/icons/skills/css3.svg" },
+            { name: "Javascript", icon: "/icons/skills/javascript.svg" },
+            { name: "Astro", icon: "/icons/skills/astro.svg" },
+            { name: "Tailwind", icon: "/icons/skills/tailwind.svg" },
+            { name: "Git", icon: "/icons/skills/git.svg" },
+        ],
+    },
+    {
+        name: "Algolia Explorer",
+        links: [
+            {
+                name: "GitHub",
+                url: "https://github.com/anthony-rosado/algolia-explorer",
+                icon: "/icons/github.svg"
+            },
+        ],
+        description: "API que integra el cliente oficial de Algolia en PHP para gestionar productos y categorías, " +
+            "indexarlos y realizar búsquedas eficientes.",
+        technologies: [
+            { name: "PHP", icon: "/icons/skills/php.svg" },
+            { name: "LaraveL", icon: "/icons/skills/laravel.svg" },
+            { name: "MySQL", icon: "/icons/skills/mysql.svg" },
+            { name: "JSON", icon: "/icons/skills/json.svg" },
+            { name: "Git", icon: "/icons/skills/git.svg" },
+            { name: "Docker", icon: "/icons/skills/docker.svg" },
+            { name: "Algolia", icon: "/icons/skills/algolia.svg" },
+        ],
+    },
+    {
+        name: "XML Invoice Recorder",
+        links: [
+            {
+                name: "GitHub",
+                url: "https://github.com/anthony-rosado/xml-invoice-recorder",
+                icon: "/icons/github.svg"
+            },
+        ],
+        description: "API para gestionar facturas electrónicas en formato XML. Permite autenticación de usuarios, " +
+            "carga y eliminación de archivos, visualización detallada de facturas, notificaciones.",
+        technologies: [
+            { name: "PHP", icon: "/icons/skills/php.svg" },
+            { name: "LaraveL", icon: "/icons/skills/laravel.svg" },
+            { name: "MySQL", icon: "/icons/skills/mysql.svg" },
+            { name: "JSON", icon: "/icons/skills/json.svg" },
+            { name: "XML", icon: "/icons/skills/xml.svg" },
+            { name: "Git", icon: "/icons/skills/git.svg" },
+            { name: "Docker", icon: "/icons/skills/docker.svg" },
+        ],
+    },
+    {
+        name: "Notes Challenge",
+        links: [
+            {
+                name: "GitHub",
+                url: "https://github.com/anthony-rosado/notes-challenge",
+                icon: "/icons/github.svg"
+            },
+        ],
+        description: "API para gestionar notas y archivos de usuarios dentro de grupos, también tiene una " +
+            "implementación de envío de correos y manejo de premisos. Además, cuenta con pruebas automatizadas.",
+        technologies: [
+            { name: "PHP", icon: "/icons/skills/php.svg" },
+            { name: "LaraveL", icon: "/icons/skills/laravel.svg" },
+            { name: "MySQL", icon: "/icons/skills/mysql.svg" },
+            { name: "JSON", icon: "/icons/skills/json.svg" },
+            { name: "Git", icon: "/icons/skills/git.svg" },
+        ],
+    },
+];
+---
+
+<Section id="projects" title="Proyectos" icon={ projectIcon }>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-4 sm:gap-y-5">
+        { projects.map((project) => (
+            <div class="flex flex-col bg-slate-800/80 backdrop-blur-md p-6 rounded-2xl
+    shadow-lg border border-slate-700 hover:shadow-2xl transition-all duration-300">
+                <div class="flex flex-col justify-between">
+                    <div class="flex flex-col">
+                        <h3 class="text-2xl font-bold text-amber-400 text-center">{ project.name }</h3>
+                        <div class="flex gap-2 mt-2 justify-center">
+                            { project.links.map((link) => (
+                                <a
+                                    href={ link.url }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hover:scale-110 transition-transform hover:brightness-125"
+                                >
+                                    <img class="w-7 h-7" loading="lazy" src={ link.icon }
+                                         alt={ link.name } />
+                                </a>
+                            )) }
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 mt-4 text-pretty sm:text-base">{ project.description }</p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        { project.technologies.map((tech) => (
+                            <figure class="flex items-center gap-2 bg-gray-700/70 px-3 py-1 rounded-full text-sm
+                        text-gray-200 cursor-default">
+                                <img src={ tech.icon } alt={ tech.name } loading="lazy" class="w-5 h-5" />
+                                <figcaption>{ tech.name }</figcaption>
+                            </figure>
+                        )) }
+                    </div>
+                </div>
+            </div>
+        )) }
+    </div>
+</Section>
