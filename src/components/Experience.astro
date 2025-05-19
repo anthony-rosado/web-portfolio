@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import Section from "./Section.astro";
+import experienceIcon from '../assets/icons/experience.svg';
+import companyIcon from '../assets/icons/company.svg';
+
+interface Experience {
+    position: string;
+    company: string;
+    companyLogo: string;
+    startDate: string;
+    endDate: string;
+    location: string;
+    modality: string;
+    description: Array<string>;
+}
+
+const experiences: Experience[] = [
+    {
+        position: "Desarrollador back-end",
+        company: "ID B.I.",
+        companyLogo: "/images/logos/idbi.jpeg",
+        startDate: "Jul 2020",
+        endDate: "Actualidad",
+        location: "Lima, Perú",
+        modality: "Remoto",
+        description: [
+            "Desarrollo de soluciones para mejorar procesos internos y flujos de trabajo.",
+            "Coordinación con el equipo para planificar integraciones y dar seguimiento a tareas.",
+            "Revisión de código y mentoría técnica, cuidando la calidad y buenas prácticas.",
+            "Integración de servicios como ERPs y pasarelas de pago para optimizar sistemas.",
+            "Optimización avanzada de bases de datos, mejorando rendimiento y estructura."
+        ],
+    },
+    {
+        position: "Desarrollador full-stack",
+        company: "Peru Apps",
+        companyLogo: "/images/logos/peru-apps.jpeg",
+        startDate: "Ene 2020",
+        endDate: "Jul 2020",
+        location: "Lima, Perú",
+        modality: "Presencial",
+        description: [
+            "Desarrollo de software a medida para digitalizar procesos según necesidades del cliente.",
+            "Participación en proyectos con equipos multidisciplinarios.",
+            "Mejora continua de habilidades técnicas y blandas colaborando en un entorno ágil."
+        ],
+    },
+    {
+        position: "Desarrollador web",
+        company: "San Fernando",
+        companyLogo: "/images/logos/san-fernando.jpeg",
+        startDate: "Jun 2019",
+        endDate: "Jul 2019",
+        location: "Huaral, Perú",
+        modality: "Presencial",
+        description: [
+            "Desarrollo de un sistema para controlar líneas de producción y mejorar la toma de decisiones.",
+            "Implementación de soluciones para seguir el flujo de trabajo y detectar cuellos de botella.",
+            "Creación de herramientas para analizar y visualizar datos en tiempo real."
+        ],
+    },
+];
+---
+
+<Section id="experience" title="Experiencia" icon={ experienceIcon }>
+    { experiences.map((exp) => (
+        <div class="bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border
+        border-slate-700 transition-shadow hover:shadow-xl">
+            <div class="flex items-center gap-4 mb-4">
+                <img src={ exp.companyLogo } alt={ exp.company } loading="lazy"
+                     class="size-16 rounded-xl object-contain bg-slate-700 p-1.5" />
+                <div class="flex flex-col sm:flex-row sm:justify-between w-full">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-amber-400 text-balance">{ exp.position }</h3>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm">
+                            <Image src={ companyIcon } alt="company icon" class="size-4" />
+                            <span>{ exp.company }</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-300 mt-2 sm:mt-0 sm:text-right">
+                        <p>{ exp.startDate } – { exp.endDate }</p>
+                        <p class="text-gray-400">{ exp.location } – <span
+                            class="text-amber-300">{ exp.modality }</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="text-sm list-disc list-inside space-y-2 text-gray-300 pl-2 md:pl-6 md:text-base">
+                { exp.description.map((item) => (
+                    <li>{ item }</li>
+                )) }
+            </ul>
+        </div>
+    )) }
+</Section>
