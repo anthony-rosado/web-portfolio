@@ -4,7 +4,7 @@ export interface SocialAccount {
     icon: string;
 }
 
-export const contactEmail = 'anthony.rosado747@gmail.com';
+export const contactEmail = 'arosado-26@hotmail.com';
 
 export const cvUrl = '/CV_Anthony_Rosado.pdf';
 

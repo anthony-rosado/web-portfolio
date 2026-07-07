@@ -25,8 +25,8 @@ const projects: Project[] = [
         name: 'Portafolio web',
         links: [{ name: 'Web', url: '/', icon: '/icons/internet.svg' }],
         description:
-            'Portafolio web personal donde presento mi experiencia profesional, proyectos destacados y ' +
-            'habilidades técnicas. Optimizado para rendimiento, responsivo y con diseño moderno.',
+            'Sitio personal construido con Astro y Tailwind CSS. Optimizado para rendimiento con ' +
+            'imágenes en WebP, accesible y con SEO cuidado mediante metadatos Open Graph y sitemap.',
         technologies: [
             { name: 'HTML', icon: '/icons/skills/html5.svg' },
             { name: 'CSS', icon: '/icons/skills/css3.svg' },
@@ -46,8 +46,9 @@ const projects: Project[] = [
             },
         ],
         description:
-            'API que integra el cliente oficial de Algolia en PHP para gestionar productos y categorías, ' +
-            'indexarlos y realizar búsquedas eficientes.',
+            'API en Laravel 11 que integra el cliente oficial de Algolia para indexar y buscar ' +
+            'productos y categorías de forma eficiente, con soporte para múltiples aplicaciones de ' +
+            'Algolia. Incluye pruebas con PHPUnit y análisis estático del código.',
         technologies: [
             { name: 'PHP', icon: '/icons/skills/php.svg' },
             { name: 'Laravel', icon: '/icons/skills/laravel.svg' },
@@ -68,8 +69,9 @@ const projects: Project[] = [
             },
         ],
         description:
-            'API para gestionar facturas electrónicas en formato XML. Permite autenticación de usuarios, ' +
-            'carga y eliminación de archivos, visualización detallada de facturas, notificaciones.',
+            'API REST en Laravel para gestionar facturas electrónicas en XML: autenticación OAuth2 ' +
+            'con Passport, carga y eliminación de archivos, listados paginados con detalle y ' +
+            'agregación de montos por moneda. Contenerizada con Docker (Sail) y probada con PHPUnit.',
         technologies: [
             { name: 'PHP', icon: '/icons/skills/php.svg' },
             { name: 'Laravel', icon: '/icons/skills/laravel.svg' },
@@ -90,8 +92,9 @@ const projects: Project[] = [
             },
         ],
         description:
-            'API para gestionar notas y archivos de usuarios dentro de grupos, también tiene una ' +
-            'implementación de envío de correos y manejo de premisos. Además, cuenta con pruebas automatizadas.',
+            'API REST en Laravel para gestionar notas de usuarios, con autenticación OAuth2 ' +
+            '(Passport) y notificaciones por correo procesadas de forma asíncrona mediante colas. ' +
+            'Cuenta con una suite de pruebas automatizadas y colección de Postman.',
         technologies: [
             { name: 'PHP', icon: '/icons/skills/php.svg' },
             { name: 'Laravel', icon: '/icons/skills/laravel.svg' },
@@ -108,12 +111,12 @@ const projects: Project[] = [
         {
             projects.map((project) => (
                 <div
-                    class="flex flex-col bg-slate-800/80 backdrop-blur-md p-6 rounded-2xl
-    shadow-lg border border-slate-700 hover:shadow-2xl transition-all duration-300"
+                    class="flex flex-col bg-surface/70 backdrop-blur-md p-6 rounded-2xl
+    shadow-lg border border-line hover:border-accent/40 hover:shadow-2xl transition-all duration-300"
                 >
                     <div class="flex flex-col justify-between">
                         <div class="flex flex-col">
-                            <h3 class="text-2xl font-bold text-amber-400 text-center">
+                            <h3 class="text-2xl font-bold text-accent text-center">
                                 {project.name}
                             </h3>
                             <div class="flex gap-2 mt-2 justify-center">
@@ -134,14 +137,14 @@ const projects: Project[] = [
                                 ))}
                             </div>
                         </div>
-                        <p class="text-sm text-gray-300 mt-4 text-pretty sm:text-base">
+                        <p class="text-sm text-zinc-300 mt-4 text-pretty sm:text-base">
                             {project.description}
                         </p>
                         <div class="flex flex-wrap justify-center gap-2 mt-4">
                             {project.technologies.map((tech) => (
                                 <figure
-                                    class="flex items-center gap-2 bg-gray-700/70 px-3 py-1 rounded-full text-sm
-                        text-gray-200 cursor-default"
+                                    class="flex items-center gap-2 bg-line/60 px-3 py-1 rounded-full text-sm
+                        text-zinc-200 cursor-default"
                                 >
                                     <img
                                         src={tech.icon}

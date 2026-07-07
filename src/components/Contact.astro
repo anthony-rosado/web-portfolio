@@ -5,14 +5,14 @@ import { contactEmail, accounts } from '../data/site';
 ---
 
 <Section id="contact" title="Contacto" icon={userIcon}>
-    <p class="text-sm sm:text-base text-pretty text-gray-300">
+    <p class="text-sm sm:text-base text-pretty text-zinc-300">
         ¿Tienes un proyecto en mente o una oportunidad? Escríbeme y conversemos.
     </p>
     <div class="flex flex-wrap items-center gap-4">
         <a
             href={`mailto:${contactEmail}`}
-            class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-slate-900 font-medium
-            rounded-full shadow-sm hover:bg-amber-300 hover:scale-105 transition-all duration-200"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-canvas font-medium
+            rounded-full shadow-sm hover:bg-accent-soft hover:scale-105 transition-all duration-200"
         >
             {contactEmail}
         </a>

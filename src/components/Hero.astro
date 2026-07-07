@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../assets/images/profile-photo.png';
+import locationIcon from '../assets/icons/location.svg';
+import { accounts, contactEmail, cvUrl } from '../data/site';
+
+const me = {
+    name: 'Anthony Rosado',
+    occupation: 'Desarrollador de software',
+    location: 'Lima, Perú',
+    tagline:
+        'Construyo APIs, bases de datos y servicios backend con foco en la calidad y el trabajo en equipo.',
+};
+
+const focus = ['PHP', 'Laravel', 'MySQL', 'Redis', 'Git', 'Docker'];
+
+const tile = 'bg-surface/70 border border-line rounded-2xl backdrop-blur-sm';
+---
+
+<section class="py-10">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <!-- Intro -->
+        <div class={`${tile} p-6 sm:col-span-2 sm:row-span-2 flex flex-col justify-center gap-4`}>
+            <div class="flex items-center gap-5">
+                <Image
+                    src={photo}
+                    alt="Anthony Rosado"
+                    loading="eager"
+                    class="size-24 md:size-28 rounded-full ring-2 ring-accent/40"
+                />
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-accent">
+                        {me.name}
+                    </h1>
+                    <p class="text-lg md:text-xl text-zinc-200">{me.occupation}</p>
+                </div>
+            </div>
+            <p class="text-sm sm:text-base text-zinc-400 text-pretty">
+                {me.tagline}
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <a
+                    href={cvUrl}
+                    download
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-accent text-canvas font-medium
+                    rounded-full shadow-sm hover:bg-accent-soft hover:scale-105 transition-all duration-200"
+                >
+                    Descargar CV
+                </a>
+                <a
+                    href={`mailto:${contactEmail}`}
+                    class="inline-flex items-center gap-2 px-4 py-2 border border-line text-zinc-100
+                    font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-200"
+                >
+                    Contáctame
+                </a>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class={`${tile} p-6 flex flex-col justify-center gap-3`}>
+            <div class="flex items-center gap-2 text-zinc-300">
+                <Image src={locationIcon} alt="" loading="eager" class="size-5" />
+                <span class="text-sm">{me.location}</span>
+            </div>
+            <span
+                class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-3 py-1
+                text-xs font-medium text-accent"
+            >
+                <span class="size-2 rounded-full bg-accent"></span>
+                Disponible para proyectos
+            </span>
+        </div>
+
+        <!-- Socials -->
+        <div class={`${tile} p-6 flex items-center justify-center gap-4`}>
+            {
+                accounts.map((account) => (
+                    <a
+                        href={account.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={account.platform}
+                        aria-label={account.platform}
+                        class="hover:scale-110 transition-transform hover:brightness-125"
+                    >
+                        <img src={account.icon} alt="" loading="eager" class="size-9" />
+                    </a>
+                ))
+            }
+        </div>
+
+        <!-- Focus technologies -->
+        <div class={`${tile} p-6 sm:col-span-3 flex flex-wrap items-center gap-2`}>
+            <span class="text-sm text-zinc-400 mr-1">Stack principal:</span>
+            {
+                focus.map((tech) => (
+                    <span class="rounded-full bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
+                        {tech}
+                    </span>
+                ))
+            }
+        </div>
+    </div>
+</section>

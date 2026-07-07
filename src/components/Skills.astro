@@ -11,6 +11,7 @@ const technologies = [
     { name: 'PHP', icon: '/icons/skills/php.svg' },
     { name: 'MySQL', icon: '/icons/skills/mysql.svg' },
     { name: 'MariaDB', icon: '/icons/skills/mariadb.svg' },
+    { name: 'Redis', icon: '/icons/skills/redis.svg' },
     { name: 'Laravel', icon: '/icons/skills/laravel.svg' },
     { name: 'Astro', icon: '/icons/skills/astro.svg' },
     { name: 'Tailwind CSS', icon: '/icons/skills/tailwind.svg' },
@@ -30,10 +31,12 @@ const tools = [
 ---
 
 <Section id="skills" title="Habilidades" icon={skillIcon}>
-    <SkillContainer name="Tecnologías">
-        {technologies.map((tech) => <SkillBadge name={tech.name} icon={tech.icon} />)}
-    </SkillContainer>
-    <SkillContainer name="Herramientas">
-        {tools.map((tool) => <SkillBadge name={tool.name} icon={tool.icon} />)}
-    </SkillContainer>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
+        <SkillContainer name="Tecnologías" class="md:col-span-3">
+            {technologies.map((tech) => <SkillBadge name={tech.name} icon={tech.icon} />)}
+        </SkillContainer>
+        <SkillContainer name="Herramientas" class="md:col-span-2">
+            {tools.map((tool) => <SkillBadge name={tool.name} icon={tool.icon} />)}
+        </SkillContainer>
+    </div>
 </Section>

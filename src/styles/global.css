@@ -2,4 +2,10 @@
 
 @theme {
     --font-sans: 'Rubik', sans-serif;
+
+    --color-canvas: #09090b; /* zinc-950  — page background */
+    --color-surface: #18181b; /* zinc-900  — cards / tiles   */
+    --color-line: #27272a; /* zinc-800  — borders         */
+    --color-accent: #2dd4bf; /* teal-400  — primary accent  */
+    --color-accent-soft: #5eead4; /* teal-300  — accent hover    */
 }

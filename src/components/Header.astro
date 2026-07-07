@@ -23,18 +23,18 @@ const links = [
 ];
 ---
 
-<header class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+<header class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-max max-w-[calc(100vw-1rem)]">
     <nav
         aria-label="Navegación principal"
-        class="flex items-center gap-1 px-1.5 md:px-3 py-2 bg-gray-800/80 border border-slate-700 backdrop-blur-md
-    rounded-full shadow-lg text-white transition-all duration-300"
+        class="flex items-center justify-center gap-0.5 px-1 md:gap-1 md:px-3 py-2 bg-surface/80 border border-line backdrop-blur-md
+    rounded-full shadow-lg text-zinc-100 transition-all duration-300"
     >
         {
             links.map((link) => (
                 <a
                     href={link.href}
-                    class="px-1.5 md:px-3 text-sm md:text-base text-nowrap font-medium rounded-full
-            hover:text-amber-400 hover:bg-gray-700/60 transition-colors duration-200"
+                    class="px-2 py-1 md:px-3 text-xs md:text-base text-nowrap font-medium rounded-full
+            hover:text-accent-soft hover:bg-line/60 transition-colors duration-200"
                 >
                     {link.label}
                 </a>
