@@ -1,32 +1,44 @@
 ---
 const links = [
     {
-        label: "Sobre mí",
-        href: "/#about-me",
+        label: 'Sobre mí',
+        href: '/#about-me',
     },
     {
-        label: "Experiencia",
-        href: "/#experience",
+        label: 'Experiencia',
+        href: '/#experience',
     },
     {
-        label: "Habilidades",
-        href: "/#skills",
+        label: 'Habilidades',
+        href: '/#skills',
     },
     {
-        label: "Proyectos",
-        href: "/#projects",
+        label: 'Proyectos',
+        href: '/#projects',
+    },
+    {
+        label: 'Contacto',
+        href: '/#contact',
     },
 ];
 ---
 
 <header class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-    <nav class="flex items-center gap-1 px-1.5 md:px-3 py-2 bg-gray-800/80 border border-slate-700 backdrop-blur-md
-    rounded-full shadow-lg text-white transition-all duration-300">
-        { links.map((link) => (
-            <a href={ link.href } class="px-1.5 md:px-3 text-sm md:text-base text-nowrap font-medium rounded-full
-            hover:text-amber-400 hover:bg-gray-700/60 transition-colors duration-200">
-                { link.label }
-            </a>
-        )) }
+    <nav
+        aria-label="Navegación principal"
+        class="flex items-center gap-1 px-1.5 md:px-3 py-2 bg-gray-800/80 border border-slate-700 backdrop-blur-md
+    rounded-full shadow-lg text-white transition-all duration-300"
+    >
+        {
+            links.map((link) => (
+                <a
+                    href={link.href}
+                    class="px-1.5 md:px-3 text-sm md:text-base text-nowrap font-medium rounded-full
+            hover:text-amber-400 hover:bg-gray-700/60 transition-colors duration-200"
+                >
+                    {link.label}
+                </a>
+            ))
+        }
     </nav>
 </header>

@@ -1,8 +1,12 @@
 ---
-const { name } = Astro.props
+interface Props {
+    name: string;
+}
+
+const { name } = Astro.props;
 ---
 
-<h3 class="w-full text-xl font-semibold text-gray-300 text-center mb-3 mt-6">{ name }</h3>
+<h3 class="w-full text-xl font-semibold text-gray-300 text-center mb-3 mt-6">{name}</h3>
 <div class="flex flex-wrap justify-center gap-4">
     <slot />
 </div>
